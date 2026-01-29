@@ -1,9 +1,12 @@
-export function setup_filter() {
-    const input = document.getElementById('search');
-    if (!input) return;
+/**
+ * js/filter.js - Lógica de busca em tempo real
+ */
+export function search_cards(cards, term) {
+    const query = term.toLowerCase().trim();
+    if (!query) return cards;
 
-    input.addEventListener('input', (e) => {
-        console.log("Filtrando por:", e.target.value);
-        // Lógica de filtro será conectada aqui
+    return cards.filter(card => {
+        return card.name.toLowerCase().includes(query) || 
+               (card.text && card.text.toLowerCase().includes(query));
     });
 }
