@@ -1,0 +1,50 @@
+:root {
+    --primary-color: #f3d298;
+    --bg-color: #1a1a1a;
+    --card-bg: #2d2d2d;
+    --text-main: #e0e0e0;
+    --accent: #4a90e2;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    margin: 0;
+    padding: 20px;
+}
+
+.hs-lego-container { max-width: 1200px; margin: 0 auto; }
+
+header { text-align: center; margin-bottom: 30px; border-bottom: 2px solid var(--primary-color); }
+
+#card-search {
+    width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #444;
+    background: var(--card-bg); color: white; margin-bottom: 20px;
+}
+
+#main-content { display: flex; gap: 20px; }
+
+#cards-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 15px; flex: 2; height: 70vh; overflow-y: auto;
+}
+
+.card-item {
+    background: var(--card-bg); border-radius: 8px; padding: 10px;
+    cursor: pointer; transition: 0.2s; border: 1px solid transparent;
+}
+
+.card-item:hover { transform: scale(1.03); border-color: var(--primary-color); }
+
+#deck-sidebar { flex: 1; background: #252525; padding: 20px; border-radius: 10px; }
+
+.synergy-box {
+    background: rgba(74, 144, 226, 0.1); border-left: 4px solid var(--accent);
+    padding: 10px; margin-top: 15px; font-size: 0.9rem;
+}
+
+.btn-export {
+    width: 100%; padding: 15px; background: var(--primary-color);
+    color: #000; font-weight: bold; border: none; border-radius: 5px; cursor: pointer;
+}
