@@ -1,25 +1,33 @@
 import { renderHomePage } from './HomePage.js';
-import { DeckManager } from './DeckManager.js';
-import { filterCards, debounceSearch } from './CardFilter.js';
-import { generateDeckCode, copyToClipboard } from './DeckExporter.js';
 import { renderPrivacyPolicy } from './PrivacyPolicy.js';
 import { renderTermsOfUse } from './TermsOfUse.js';
 
-let allCards = []; 
-
-async function init() {
+function init() {
     const app = document.getElementById('app');
+    if (!app) {
+        console.error("Elemento #app não encontrado!");
+        return;
+    }
+
+    // Inicializa com a Home
     app.innerHTML = renderHomePage();
+    console.log("HSLego iniciado com sucesso!");
 
-    const searchInput = document.getElementById('card-search');
-    searchInput.addEventListener('input', debounceSearch((e) => {
-        const filtered = filterCards(allCards, e.target.value);
-        // Lógica de renderização do grid aqui
-    }));
-
-    document.getElementById('view-privacy').onclick = () => app.innerHTML = renderPrivacyPolicy();
-    document.getElementById('view-terms').onclick = () => app.innerHTML = renderTermsOfUse();
-    document.getElementById('view-home').onclick = () => init();
+    // Listener para navegação simples (se os IDs existirem no rodapé da HomePage)
+    document.addEventListener('click', (e) => {
+        if (e.target.id === 'view-privacy') {
+            app.innerHTML = renderPrivacyPolicy();
+        } else if (e.target.id === 'view-terms') {
+            app.innerHTML = renderTermsOfUse();
+        } else if (e.target.id === 'view-home') {
+            app.innerHTML = renderHomePage();
+        }
+    });
 }
 
-init();
+// Garante que o script rode após o HTML carregar
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+} else {
+    init();
+}
