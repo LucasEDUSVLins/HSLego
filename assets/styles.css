@@ -1,0 +1,9 @@
+:root { --primary: #f3d298; --bg: #1a1a1a; --card: #2d2d2d; --text: #e0e0e0; }
+body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', sans-serif; margin: 0; padding: 20px; }
+.container { max-width: 1100px; margin: 0 auto; }
+header { text-align: center; border-bottom: 2px solid var(--primary); margin-bottom: 20px; }
+input { width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #444; background: var(--card); color: white; }
+.layout { display: flex; gap: 20px; margin-top: 20px; }
+#grid { flex: 2; display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 10px; }
+aside { flex: 1; background: #222; padding: 15px; border-radius: 8px; }
+.btn { background: var(--primary); color: black; border: none; padding: 12px; border-radius: 5px; cursor: pointer; font-weight: bold; width: 100%; }
